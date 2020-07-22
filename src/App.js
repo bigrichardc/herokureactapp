@@ -3,8 +3,22 @@ import logo from './logo.svg';
 import {Container, Title} from './style';
 import './App.css';
 
-function App() {
-  return (
+class App extends React.Component {
+
+  state = { inColour: "red"}
+
+    handleClick = () => this.setState({
+        inColour: "green"
+    })
+    
+
+  render() {
+    //example of destructuring an assignment
+    let {inColour} = this.state;
+    let {handleClick} = this;
+
+    return(
+      
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -21,10 +35,11 @@ function App() {
         </a>
       </header>
       <Container>
-        <Title>Hello WOrld!</Title>
+        <Title inputColour={inColour} onClick={handleClick}>Hello Wild</Title>
       </Container>
     </div>
-  );
+    )
+  };
 }
 
 export default App;

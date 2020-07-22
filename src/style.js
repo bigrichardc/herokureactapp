@@ -10,5 +10,5 @@ export const Container = styled.div`
 export const Title = styled.h1`
     font-size: 1em;
     text-align: center;
-    color: red;
+    color: ${props => props.inputColour || "red"};
 `
