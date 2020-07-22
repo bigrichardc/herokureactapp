@@ -35,7 +35,7 @@ class App extends React.Component {
         </a>
       </header>
       <Container>
-        <Title inputColour={inColour} onClick={handleClick}>Hello Wild</Title>
+        <Title inputColour={inColour} onClick={handleClick}>Hello hello hello hello Wild</Title>
       </Container>
     </div>
     )
