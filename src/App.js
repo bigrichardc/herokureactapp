@@ -5,17 +5,47 @@ import './App.css';
 
 class App extends React.Component {
 
-  state = { inColour: "red"}
+  state = { inColour: "red", rules: 0}
 
-    handleClick = () => this.setState({
-        inColour: "green"
+
+  /*  change state directly
+  handleClick = () => this.setState({
+    inColour: "green"
+  })
+  */
+
+
+    handleClick = () => this.setState((prevState) => {
+      //get old state variables
+      let {inColour, rules} = prevState;  
+      console.log(prevState);
+      //set existing state variable to something else
+      inColour = "green";
+      
+      // add new state variables and add to existing, then return
+      let inColours = {[`inColour${rules}`] : 'green'};
+      rules++;
+      return {
+        inColour,
+        rules,
+        ...inColours
+      }
+
+      
+        
     })
+
+    get testDiv() {
+      return(
+      <div>HelloWorld!!!</div>
+      );
+    }
     
 
   render() {
     //example of destructuring an assignment
     let {inColour} = this.state;
-    let {handleClick} = this;
+    let {handleClick, testDiv} = this;
 
     return(
       
@@ -35,6 +65,7 @@ class App extends React.Component {
         </a>
       </header>
       <Container>
+        {testDiv}
         <Title inputColour={inColour} onClick={handleClick}>Hello hello hello hello Wild</Title>
       </Container>
     </div>
