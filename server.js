@@ -23,19 +23,19 @@ app.get('/dbtest', function (req, res) {
 
     sql.connect(config, function (err) {
     
-      if (err) console.log(err);
+      if (err) res.send(err);
 
       // create Request object
       var request = new sql.Request();
          
       // query to the database and get the records
       request.query('select * from Customers', function (err, recordset) {
-          
-          if (err) console.log(err)
-
-          // send records as a response
-         res.send(recordset);
-          
+        if (err) res.send(err)
+        
+        // send records as a response
+        res.send(recordset);
+        
+        
       });
     });
 });
