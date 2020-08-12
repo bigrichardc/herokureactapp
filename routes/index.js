@@ -10,9 +10,11 @@ module.exports = (params) => {
   });
 
   router.get("/goodbye", (request, response) => {
-    console.log("Hello");
-    response.send("Hello");
+    console.log("goodbye");
+    response.send("Bye");
   });
+
+  router.use("/experiments", reactExperimentsRoute(params));
 
   return router;
 };

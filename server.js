@@ -42,7 +42,7 @@ app.get("/dbtest", function (req, res) {
 app.get("/ping", function (req, res) {
   return res.send("pong");
 });
-//use routes to determine where to send user
+//use routes to determine where to send user - looks at /routes/index.js
 app.use("/", routes());
 
 app.listen(port, () => {
